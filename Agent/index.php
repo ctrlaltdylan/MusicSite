@@ -44,7 +44,7 @@ if ($action == 'offer_form') {
     $Venue_ID = venueName_to_Venue_ID($venueName); 
 
     $submitoffer = submit_offer($Artist_ID, $Agent_ID, $Venue_ID, $Promoter_ID, $offerDate, $offerStatus, $offerGuarantee, $offerBonus, $offerHotel, $offerTechnical, $offerMediaSupport, $offerSellableCap, $offerAgeLimit, $offerEventType, $offerGATicket1 , $offerGATIcket2, $offerLoadIn , $offerDoors , $offerSetTime , $offerSetLength , $offerCurfew);
-    include 'offer_form.php';
+    include 'show_offers.php';
         
 } elseif ($action == 'show_offers'){
     
@@ -92,24 +92,25 @@ if ($action == 'offer_form') {
     
 }elseif($action === 'reject_counter_offer'){
     
+    ///////  Validate that the Counter_ID has been passed from $_POST
     if (!isset($_POST['CounterOffer_ID'])){
     } else {
         $CounterOffer_ID = $_POST['CounterOffer_ID'];
     }
     
-    $Accepted = reject_counter_Offer($CounterOffer_ID);
+    $Accepted = reject_counter_offer($CounterOffer_ID);
     
     //$Locations = get_Locations();
     $Agent_ID = $_SESSION['Agent_ID'];
     $CounterOffers = get_counter_Offers($Agent_ID);
     
     include 'view_counter_offers.php';
-
     
 } elseif($action === 'counter_offer'){
     //This is the view for all counter offer's belonging to the logged in Agent
     
     $Agent_ID = $_SESSION['Agent_ID'];
+    
     $Artists = get_Artists();
     $Venues = get_Venues();
     $Promoters = get_Promoters();    

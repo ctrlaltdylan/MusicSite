@@ -3,7 +3,7 @@
 
 	function get_Offers($Promoter_ID) {
 		global $db;
-		$Offers = $db->query("SELECT * FROM Offer WHERE Promoter_ID = $Promoter_ID;");
+		$Offers = $db->query("SELECT * FROM Offer WHERE Promoter_ID = $Promoter_ID AND offerStatus = 'Pending';");
 		return $Offers->fetchAll(PDO::FETCH_ASSOC);
 	}
         
@@ -16,6 +16,18 @@
 		return $Offer;
 	}
         
+        
+        function get_acceptedOffers($Promoter_ID) {
+		global $db;
+		$acceptedOffers = $db->query("SELECT * FROM Offer WHERE Promoter_ID = $Promoter_ID AND offerStatus = 'Accepted';");
+		return $acceptedOffers->fetchAll(PDO::FETCH_ASSOC);
+	}
+       
+        function get_rejectedOffers($Promoter_ID) {
+		global $db;
+		$rejectedOffers = $db->query("SELECT * FROM Offer WHERE Promoter_ID = $Promoter_ID AND offerStatus = 'Rejected';");
+		return $rejectedOffers->fetchAll(PDO::FETCH_ASSOC);
+	}
         
         
 	function insert_Offers($Values){

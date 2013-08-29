@@ -105,7 +105,14 @@
 					</ul>
 				</form>
 			</div>
-		</div>
+                        
+                        
+                        <p><a href=".?action=show_offers">Offer List</a></p>
+
+                </div>
+
+
+         
 
 
 <?php include '../footer.php'; ?>

@@ -28,7 +28,7 @@
     /////////////////////////////////////////////////////////////////
         function get_counter_Offers($Agent_ID) {
             global $db;
-            $query = $db->prepare("SELECT * FROM CounterOffer WHERE Agent_ID = $Agent_ID ORDER BY counterOfferTimeStamp DESC;");
+            $query = $db->prepare("SELECT * FROM CounterOffer WHERE Agent_ID = $Agent_ID AND counterOfferStatus = 'Pending' ORDER BY counterOfferTimeStamp DESC;");
             $query->setFetchMode(PDO::FETCH_ASSOC);
             $query->execute();
             

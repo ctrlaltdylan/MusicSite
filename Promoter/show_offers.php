@@ -20,5 +20,7 @@
 			</tr>
 			<?php } ?>
 			</table>
+                        
+                        <p><a href=".?action=view_calendar">View Calendar</a></p>
 			
 </div>

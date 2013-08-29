@@ -9,8 +9,7 @@
 		
 if (isset($_POST['action'])) {
     $action = $_POST['action'];
-    echo $action;
-
+    
 } elseif (isset($_GET['action'])) {
     $action = $_GET['action'];
 
@@ -35,6 +34,19 @@ if ($action === 'list_offers') {
     } else {
         $Offers = get_Offers($Promoter_ID);
     }
+    
+    if (get_acceptedOffers($Promoter_ID) == 0){
+        echo ' Sorry there are no accepted offers corresponding with this ID ';
+    } else {
+        $acceptedOffers = get_acceptedOffers($Promoter_ID);
+    }   
+    
+    if (get_rejectedOffers($Promoter_ID) == 0){
+        echo ' Sorry there are no rejected offers corresponding with this ID ';
+    } else {
+        $rejectedOffers = get_rejectedOffers($Promoter_ID);
+    } 
+    
     
     $Locations = get_Locations();
 
@@ -66,6 +78,7 @@ if ($action === 'list_offers') {
     include 'offer_list.php';
 
 } elseif($action === 'counter_offer'){
+    
     $Promoter_ID = $_SESSION['Promoter_ID'];
     $Artists = get_Artists();
     $Venues = get_Venues();
@@ -88,6 +101,15 @@ if ($action === 'list_offers') {
     echo $Agent_ID;
     $submitCounterOffer = submit_counter_Offer($Offer_ID, $counterOfferStatus, $Artist_ID, $Agent_ID, $Venue_ID, $counterOfferDate, $counterOfferGuarantee, $counterOfferBonus, $counterOfferHotel, $counterOfferTechnical, $counterOfferMediaSupport, $counterOfferSellableCap, $counterOfferAgeLimit, $counterOfferEventType, $counterOfferGATicket1, $counterOfferGATIcket2, $counterOfferLoadIn, $counterOfferDoors, $counterOfferSetTime, $counterOfferCurfew);
     include 'offer_list.php';
+    
+} elseif( $action === 'view_calendar'){
+    
+    $Promoter_ID = $_SESSION['Promoter_ID'];
+    
+    $Offers = get_Offers($Promoter_ID);
+    
+    include 'view_calendar.php';
+    
     
 } else {
     echo 'fuckkk';

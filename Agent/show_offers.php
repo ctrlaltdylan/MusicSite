@@ -35,6 +35,8 @@
                         <?php } ?>
                         </tr>
 			</table>
+                        
+                        <p><a href=".?action=offer_form">Create an Offer</a></p>
 
 </div>
 

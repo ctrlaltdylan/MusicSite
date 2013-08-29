@@ -248,5 +248,6 @@
     </div>
 </div>
 
+<p><a href=".?action=show_offers">View Offers</a></p>
 
 <?php include '../footer.php'; ?>

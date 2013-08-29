@@ -245,6 +245,7 @@
             
             <input type='submit' value = "Submit Counter Offer">
             </form>
+            
     </div>
 </div>
 
