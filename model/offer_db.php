@@ -100,4 +100,16 @@
 		$Venue_ID = $Venue_row['Venue_ID'];
                 return $Venue_ID;
         }
+        
+        function generate_contract($Offer_ID){
+                global $db;
+                
+		$query = $db->query("SELECT * FROM Offer WHERE Offer_ID = $Offer_ID;");
+                $Offer = $query->fetch();
+                
+		return $Offer;
+            
+        }
+        
+        
 ?>

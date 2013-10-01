@@ -111,7 +111,15 @@ if ($action === 'list_offers') {
     include 'view_calendar.php';
     
     
-} else {
+} elseif ( $action === 'generate_contract'){
+    
+    $Promoter_ID = $SESSION['Promoter_ID'];
+    
+    $Offer_ID = $_POST['Offer_ID'];
+    generate_contract($Offer_ID);
+    include 'generate_contract.php';
+    
+}else {
     echo 'fuckkk';
 }
 

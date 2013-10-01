@@ -42,6 +42,13 @@
                                         <input type ="submit" value ="Counter Offer">
                                     </form>
                                 </td>
+                                <td>
+                                    <form action = "." method ="post">
+                                        <input type ="hidden" name="action" value="generate_contract" />
+                                        <input type ="hidden" name ="Offer_ID" id = "Offer_ID" value="<?php echo $Offer['Offer_ID']; ?>" />
+                                        <input type ="submit" value ="Generate Contract">
+                                    </form>
+                                </td>                     
                         <?php } ?>
                         </tr>
 			</table>
