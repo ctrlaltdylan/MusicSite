@@ -11,98 +11,162 @@
 			<h3>Submit an offer for an Artist</h3>
 			<div id = "form-wrapper">
 				<form method='post' action='index.php' id ='insert_offer'>
-					<ul>
-						<li><label>Artist Requested : </label>
-						<select name = 'artistName' id = 'artistName'>
+					<table border ="1">
+						<tr><td>Artist Requested : </td>
+                                                <td>
+                                                    <select name = 'artistName' id = 'artistName'>
 							<?php foreach ($Artists as $Artist) { ?>
 							<!-- This mess of code is to grab the Artist's Artist_ID from the artistName value-->
 							<option value = <?php echo "'". $Artist['artistName'] . "'"; ?> > <?php echo $Artist['artistName']; ?> </option>
 							<?php } ?>
-						</select>
-						</li>
+                                                    </select>
+                                                </td>
+						</tr>
                                                 
                                                 <!-- hidden input data to direct the Offer Submit action-->
                                                 <input type="hidden" name="action" value="submit_offer" />
                                                 
 						<!-- ***** Date ******* -->
-						<li><label>Date : </label> <input type="date" name = "Date" id = "Date" /></li>
-
+                                        <tr>
+						<td><label>Date : </label></td>
+                                                <td><input type="date" name = "Date" id = "Date" /></td>
+                                        </tr>
 
 						<!-- ***** Guarantee ******* -->
-						<li><label>Guarantee : </label> <input type = "text" id = "Guarantee" name = "Guarantee" /> </li>
-
+                                        <tr>
+						<td><label>Guarantee : </label></td>
+                                                <td><input type = "text" id = "Guarantee" name = "Guarantee" /> </td>
+                                        </tr>
 						<!-- ***** Bonus ******* -->
-						<li><label>Bonus : </label> <input type = "text" id = "Bonus" name = "Bonus" /> </li>
+                                        <tr>
+						<td><label>Bonus : </td> 
+                                                <td><input type = "text" id = "Bonus" name = "Bonus" /> </td>
+                                        </tr>
 
 						<!-- ***** Hotel ******* -->
-						<li><label>Hotel : </label> <input type = "text" id = "Hotel" name = "Hotel" /> </li>
+                                        <tr>
+						<td><label>Hotel : </td>
+                                                <td><input type = "text" id = "Hotel" name = "Hotel" /> </td>
+                                        </tr>
 
 						<!-- ***** Technical ******* -->
-						<li><label>Technical : </label> <input type = "text" id = "Technical" name = "Technical" /> </li>
+                                        <tr>
+						<td><label>Technical : </td> 
+                                                <td><input type = "text" id = "Technical" name = "Technical" /> </td>
+                                        </tr>
 
 						<!-- ***** Media Support ******* -->
-						<li><label>Media Support : </label> <input type = "text" id = "Media_Support" name = "Media_Support" /> </li>
+                                        <tr>
+						<td><label>Media Support : </td> 
+                                                <td><input type = "text" id = "Media_Support" name = "Media_Support" /> </td>
+                                        </tr>
 
 						<!-- ***** Venue ******* -->
-						<li><label>Venue : </label>
+                                        <tr>
+                                            <td><label>Venue : </label></td>
+                                            <td>
 							<select name = 'venueName' id = 'venueName'>
 								<?php foreach ($Venues as $Venue) { ?>
 								<option value = <?php $venueName = $Venue['venueName']; echo "'". $venueName . "'"; ?> > <?php echo $Venue['venueName']; ?> </option>
 								<?php } ?>
-							</select></li>
+                                                        </select>
+                                            </td>
+                                        </tr>
 
 						<!-- ***** Location ******* -->
-						<li><label>Location : </label>
+                                        <tr>
+						<td><label>Location : </label></td>
+                                                <td>
 							<select name = 'venueLocation' id = 'venueLocation'>
 								<?php foreach ($Venues as $Venue) { ?>
 								<option value = "<?php echo $Venue['venueLocation']; ?>" > <?php echo $Venue['venueLocation']; ?> </option>
 								<?php } ?>
-						</select></li>
+                                                        </select>
+                                                </td>
+                                        </tr>
 
 						<!-- ***** Sellable Cap ******* -->
-						<li><label>Sellable Cap : </label> <input type = "text" id = "Sellable_Cap" name = "Sellable_Cap" /> </li>
+                                        <tr>
+						<td><label>Sellable Cap : </label></td> 
+                                                <td><input type = "text" id = "Sellable_Cap" name = "Sellable_Cap" /> </td>
+                                        </tr>
 
 						<!-- ***** Age Limit ******* -->
-						<li><label>Age Limit : </label> <input type = "text" id = "Age_Limit" name = "Age_Limit" /> </li>
+                                        <tr>
+						<td><label>Age Limit : </label></td>
+                                                <td><input type = "text" id = "Age_Limit" name = "Age_Limit" /></td>
+                                        </tr>
 
 						<!-- ***** Event Type ******* -->
-						<li><label>Event Type : </label> <input type = "text" id = "Event_Type" name = "Event_Type" /> </li>
+                                        <tr>
+						<td><label>Event Type : </label></td>
+                                                <td><input type = "text" id = "Event_Type" name = "Event_Type" /></td>
+                                        </tr>
+                                                
 
 						<!-- ***** GA Ticket 1 ******* -->
-						<li><label>GA Ticket 1 : </label> <input type = "text" id = "GA_Ticket1" name = "GA_Ticket1" /> </li>
+                                        <tr>
+						<td><label>GA Ticket 1 : </label></td>
+                                                <td><input type = "text" id = "GA_Ticket1" name = "GA_Ticket1" /> </td>
+                                        </tr>
 
 						<!-- ***** GA Ticket 2 ******* -->
-						<li><label>GA Ticket 2 : </label> <input type = "text" id = "GA_Ticket2" name = "GA_Ticket2" /> </li>
+                                        <tr>
+						<td><label>GA Ticket 2 : </label></td>
+                                                <td><input type = "text" id = "GA_Ticket2" name = "GA_Ticket2" /> </td>
+                                        </tr>
 
 						<!-- ***** Load in ******* -->
-						<li><label>Load in  : </label> <input type = "text" id = "Load_In" name = "Load_In" /> </li>
+                                        <tr>
+						<td><label>Load in  : </label></td>
+                                                <td><input type = "text" id = "Load_In" name = "Load_In" /> </td>
+                                        </tr>
 
 						<!-- ***** Doors ******* -->
-						<li><label>Doors : </label> <input type = "text" id = "Doors" name = "Doors" /> </li>
+                                        <tr>
+						<td><label>Doors : </label></td>
+                                                <td><input type = "text" id = "Doors" name = "Doors" /> </td>
+                                        </tr>
 
 						<!-- ***** Set Time ******* -->
-						<li><label>Set Time : </label> <input type = "text" id = "Set_Time" name = "Set_Time" /> </li>
+                                        <tr>
+						<td><label>Set Time : </label></td>
+                                                <td><input type = "text" id = "Set_Time" name = "Set_Time" /> </td>
+                                        </tr>
 
 						<!-- ***** Set Length ******* -->
-						<li><label>Set Length : </label> <input type = "text" id = "Set_Length" name = "Set_Length" /> </li>
+                                        <tr>
+						<td><label>Set Length : </label></td>
+                                                <td><input type = "text" id = "Set_Length" name = "Set_Length" /> </td>
+                                        </tr>
 
 						<!-- ***** Curfew ******* -->
-						<li><label>Curfew : </label> <input type = "text" id = "Curfew" name = "Curfew" /> </li>
+                                        <tr>
+						<td><label>Curfew : </label></td>
+                                                <td><input type = "text" id = "Curfew" name = "Curfew" /> </td>
+                                        </tr>
 
 						<!-- ***** Promoter ******* -->
-						<li><label>Promoter : </label>
+                                        <tr>
+						<td><label>Promoter : </label></td>
+                                                <td>
 							<select name = 'Promoter_ID' id = 'Promoter_ID'>
 								<?php foreach ($Promoters as $Promoter) { ?>
 								<option value = <?php echo "'". $Promoter['Promoter_ID'] . "'"; ?> > <?php echo $Promoter['Promoter_ID']; ?> </option>
 								<?php } ?>
-						</select></li>
+                                                        </select>
+                                                </td>
+                                        </tr>
 
-						<!-- ***** Contact ******* -->
-						<li><label>Contact : </label> <input type = "text" id = "Contact" name = "Contact" /> </li>
+						<!-- ***** Contact ******* -->      
+                                        <tr>
+						<td><label>Contact : </label></td>
+                                                <td><input type = "text" id = "Contact" name = "Contact" /> </td>
+                                        </tr>		
 
-						<input type='submit' value = "Submit Offer">
-
-					</ul>
+					</table>
+                                    
+                                     <input type='submit' value = "Submit Offer">
 				</form>
 			</div>
                         
