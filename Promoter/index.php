@@ -113,10 +113,10 @@ if ($action === 'list_offers') {
     
 } elseif ( $action === 'generate_contract'){
     
-    $Promoter_ID = $SESSION['Promoter_ID'];
+    $Promoter_ID = $_SESSION['Promoter_ID'];
     
     $Offer_ID = $_POST['Offer_ID'];
-    generate_contract($Offer_ID);
+    $Offer = get_Offer($Offer_ID);
     include 'generate_contract.php';
     
 }else {
