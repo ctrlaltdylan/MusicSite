@@ -4,7 +4,7 @@
 		
 		$venueName = $_POST['venueName'];
                 
-                $Promoter_ID = $_POST['Promoter_ID'];
+                $Agent_ID = $_POST['Agent_ID'];
                 
 		// Date
 		$offerDate = $_POST['Date'];

@@ -148,11 +148,11 @@
 
 						<!-- ***** Promoter ******* -->
                                         <tr>
-						<td><label>Promoter : </label></td>
+						<td><label>Agent : </label></td>
                                                 <td>
-							<select name = 'Promoter_ID' id = 'Promoter_ID'>
-								<?php foreach ($Promoters as $Promoter) { ?>
-								<option value = <?php echo "'". $Promoter['Promoter_ID'] . "'"; ?> > <?php echo $Promoter['Promoter_ID']; ?> </option>
+							<select name = 'Agent_ID' id = 'Agent_ID'>
+								<?php foreach ($Agents as $Agent) { ?>
+								<option value = <?php echo "'". $Agent['Agent_ID'] . "'"; ?> > <?php echo $Agent['Agent_ID']; ?> </option>
 								<?php } ?>
                                                         </select>
                                                 </td>

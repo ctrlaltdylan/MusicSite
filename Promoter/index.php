@@ -5,6 +5,8 @@
                 include '../model/venue_db.php';
                 include '../model/promoter_db.php';
                 include '../model/counter_offer_db.php';
+                include '../model/agent_db.php';
+                include 'offer_validation.php';
                 session_start();
 		
 if (isset($_POST['action'])) {
@@ -53,7 +55,47 @@ if ($action === 'list_offers') {
     // Display the Offer list
     include 'offer_list.php';
 
-} elseif($action === 'accept_offer'){
+} elseif ($action == 'offer_form') {
+    
+    if (!isset($_SESSION['Promoter_ID'])){
+        echo ' $_SESSION[Promoter_ID] is not set. ';
+        echo $_SESSION['user_name']; //this proves that SESSION is in fact working
+    } else{
+        $Promoter_ID = $_SESSION['Promoter_ID'];
+    }
+	//get data from database
+    $Artists = get_Artists();
+    $Venues = get_Venues();
+    $Agents = get_Agents();
+
+    // Display the Offer list
+    include 'offer_form.php';
+
+
+} elseif ($action == 'submit_offer') {
+    
+    $Promoter_ID = $_SESSION['Promoter_ID'];
+
+    include 'offer_POST_data.php';
+
+    $Artist_ID = artistName_to_Artist_ID($artistName);
+    $Venue_ID = venueName_to_Venue_ID($venueName); 
+    
+    ## Validating the user inputted values before writing to the database
+    
+    #if (offer_validation($Artist_ID, $Agent_ID, $Venue_ID, $Promoter_ID, $offerDate, $offerStatus, $offerGuarantee, $offerBonus, $offerHotel, $offerTechnical, $offerMediaSupport, $offerSellableCap, $offerAgeLimit, $offerEventType, $offerGATicket1 , $offerGATIcket2, $offerLoadIn , $offerDoors , $offerSetTime , $offerSetLength , $offerCurfew) === True) {
+    $submitoffer = submit_offer($Artist_ID, $Agent_ID, $Venue_ID, $Promoter_ID, $offerDate, $offerStatus, $offerGuarantee, $offerBonus, $offerHotel, $offerTechnical, $offerMediaSupport, $offerSellableCap, $offerAgeLimit, $offerEventType, $offerGATicket1 , $offerGATIcket2, $offerLoadIn , $offerDoors , $offerSetTime , $offerSetLength , $offerCurfew);
+    #} else {
+     #   echo $errors;
+    #}
+    
+    $Offers = get_Offers($Promoter_ID);
+    $acceptedOffers = get_acceptedOffers($Promoter_ID);
+    $rejectedOffers = get_rejectedOffers($Promoter_ID);
+    
+    include 'offer_list.php';
+        
+}elseif($action === 'accept_offer'){
     
     if (!isset($_POST['Offer_ID'])){
     } else {
@@ -119,7 +161,7 @@ if ($action === 'list_offers') {
     $Offer = get_Offer($Offer_ID);
     include 'generate_contract.php';
     
-}else {
+} else {
     echo 'fuckkk';
 }
 
