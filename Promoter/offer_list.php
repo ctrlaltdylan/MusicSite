@@ -3,7 +3,7 @@
 
 <div id = 'container'>
 
-			<h3>Current Offers</h3>
+			<h3>Sent Offers</h3>
 			<table border="1">
 			<tr>
 				<th>Offer ID</th>
@@ -23,25 +23,7 @@
                                 <td><?php echo $venueName['venueName']; ?></td>
                                 
                                 <td><?php echo $Offer['offerStatus']; ?></td>
-                                <td><form action = "." method = "post">
-                                        <input type = "hidden" name = "action" value = "accept_offer" />
-                                        <input type = "hidden" name = "Offer_ID" value ="<?php echo $Offer['Offer_ID']; ?>" />
-                                        <input type ="submit" value ="Accept">
-                                    </form>
-                                </td>
-                                <td><form action = "." method = "post">
-                                        <input type = "hidden" name = "action" value = "reject_offer" />
-                                        <input type = "hidden" name = "Offer_ID" value ="<?php echo $Offer['Offer_ID']; ?>" />
-                                        <input type ="submit" value ="Reject">
-                                    </form>
-                                </td>
-                                <td>
-                                    <form action = "." method ="post">
-                                        <input type ="hidden" name="action" value="counter_offer" />
-                                        <input type ="hidden" name ="Offer_ID" id = "Offer_ID" value="<?php echo $Offer['Offer_ID']; ?>" />
-                                        <input type ="submit" value ="Counter Offer">
-                                    </form>
-                                </td>
+                                
                      
                         <?php } ?>
                         </tr>
@@ -106,7 +88,7 @@
 
 			</table>
 
-                        <p><a href=".?action=view_calendar">View Calendar</a></p>
+                        <p><a href=".?action=offer_form">Create an Offer</a></p>
 
 </div>
 

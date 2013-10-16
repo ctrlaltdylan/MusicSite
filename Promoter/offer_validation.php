@@ -1,6 +1,6 @@
 <?php
 
-    #### Offer Submission Validation (Agent) ####
+    #### Offer Submission Validation (Promoter) ####
     
     # This file will be processed before an offer is submitted to the database
     # If one of the tests fail, the function will return FALSE. 

@@ -8,5 +8,23 @@
             return $Offers;
     }
     
+    function get_Agents(){
+		global $db;
+		$Agents = $db->query('SELECT * FROM Agent;');
+		return $Agents;
+    }
+    
+    function get_agentacceptedOffers($Agent_ID) {
+        global $db;
+	$acceptedOffers = $db->query("SELECT * FROM Offer WHERE Agent_ID = $Agent_ID AND offerStatus = 'Accepted';");
+	return $acceptedOffers->fetchAll(PDO::FETCH_ASSOC);
+    }
+       
+    function get_agentrejectedOffers($Agent_ID) {
+	global $db;
+	$rejectedOffers = $db->query("SELECT * FROM Offer WHERE Agent_ID = $Agent_ID AND offerStatus = 'Rejected';");
+	return $rejectedOffers->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
 
 ?>

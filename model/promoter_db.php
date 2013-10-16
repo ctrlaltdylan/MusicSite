@@ -17,4 +17,6 @@
                 $promoterName = $query->fetch();
                 return $promoterName;
         }
+        
+        
 ?>
