@@ -1,8 +1,8 @@
 <div id ="container">
 <!--This is the generic Contract that will bill generated from the Agent view-->
 <p>
-    AGREEMENT made this <?php echo $Offer['offerAcceptanceDate']; ?> between <u><?php echo $Offer['Artist_ID']?></u> - <u><?php echo $Offer['Agent_ID']?></u>
-(hereinafter referred as "<b>PRODUCER</b>), and <u><?php echo $Offer['Promoter_ID']?></u> (hereinafter known as the "<b>PURCHASER</b>").
+    AGREEMENT made this <?php echo $Offer['offerAcceptanceDate']; ?> between <u><?php echo get_artistName($Offer['Artist_ID'])?></u> - <u><?php echo get_agentName($Offer['Agent_ID']); ?></u>
+(hereinafter referred as "<b>PRODUCER</b>), and <u><?php echo get_promoterName($Offer['Promoter_ID']); ?></u> (hereinafter known as the "<b>PURCHASER</b>").
 It is mutually agreed upon between the parties as follows: The <b>PURCHASER</b> hereby engages the <b>PRODUCER</b> and the <b>PRODUCER</b> hereby agrees to furnish the entertainment presentation hereinafter described,
 upon all terms and conditions herein set foth, including those attached hereto entitled "<b>Additional Terms and Conditions</b>".  
     
@@ -28,15 +28,9 @@ upon all terms and conditions herein set foth, including those attached hereto e
             </li>
             <li>
                 <b>Additional Provisions:</b>
-                <ul>
-                    <li>
-                        <?php echo $Offer['offerProvisions'];?>
-                    </li>
-                </ul>
-                
             </li>
             <li>
-                <b>Merchandise:</b>  <u> Artist Percentage<?php echo $Offer['offerMerchandise1'];?> / House Percentage <?php echo $Offer['offerMerchandise2'];?></u>
+                <b>Merchandise:</b>  <u><b><?php echo $Offer['offerMerchandise1']?> / <?php echo $Offer['offerMerchandise2']?></b></u>
             </li>
             <li>
                 <b>Who Sells:</b>
@@ -50,60 +44,73 @@ upon all terms and conditions herein set foth, including those attached hereto e
                             <b>TICKET SCALING</b>
                         </th>
                         <th>
-                            Show Type: <?php echo $Offer['offerShowType'];?>
+                            Show Type:   College
                         </th>
                         <tr>
                             <td>
-                                GA 1
+                                Student
                             </td>
                             <td>
-                                $number of tickets available for GA1
-                            </td>
-                            <td>
-                                @
-                            </td>
-                            <td>
-                                <?php echo $Offer['offerGATicket1'];?>
-                            </td>
-
-                        </tr>
-                        <tr>
-                            <td>
-                                GA 2
-                            </td>
-                            <td>
-                                $number of tickets avaliable for GA2
+                                $number
                             </td>
                             <td>
                                 @
                             </td>
                             <td>
-                                <?php echo $Offer['offerGATicket12'];?>
+                                $ticket_price
                             </td>
-
+                            <td>
+                                $another_number
+                            </td>
                         </tr>
                         <tr>
-                            TOTAL CAPACITY
+                            <td>
+                                <b>TOTAL CAPACITY: </b>
+                            </td>
+                            <td>
+                                <b>$venue_total_capacity</b>
+                            </td>
+                            <td>
+                                 
+                            </td>
+                            <td>
+                                <b>Gross Potential:</b>
+                            </td>
+                            <td>
+                                <b>$gross_potential_number</b>
+                            </td>
                         </tr>
                         <tr>
-                            $Venue total capacity
+                            <td>
+                                <b>Total Tax%</b>
+                            </td>
+                            <td>
+                                
+                            </td>
+                            <td>
+                                <b>Tax/Deductions:</b>
+                            </td>
+                            <td>
+                                <b>$tax_number</b>
+                            </td>
+                            <td>
+                                <b>Net Potential:</b>
+                            </td>
+                            <td>
+                                $net_potential_number
+                            </td>
                         </tr>
-                        <tr>
-                            
-                        </tr>
-                        <tr>
-                            Gross Potential:
-                        </tr>
-                        <tr>
-                            $GA1 Ticket * GA1Allocation + $GA2 Ticket * GA2Allocation...
-                        </tr>
-                            
+                        
                         
                     </table>
                 </p>
+                <p>
+                    <b>Notes:</b>
+                    $notes_text
+                </p>
         </li>
         <li>
-            <b>DEPOSITS/CONTRACTS: $deposits_number ##(Which is inputted by Agent) due upon receipt of fully executed contracts</b>
+            <b>DEPOSITS/CONTRACTS: $deposits_number due upon receipt of fully executed contracts</b>
             <p>
                 Purchaser will make payments as follows: all payments shall be paid by certified check, money order, bank draft, wire transfer, or cash.
                 Notwithstanding the foregoing, all deposits will be paid by <b>PURCHASER</b> to <b><?php echo $Offer['OfferAgent'] ?></b> client trust account on

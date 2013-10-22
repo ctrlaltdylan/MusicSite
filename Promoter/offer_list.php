@@ -17,7 +17,7 @@
                                 <td><?php echo $Offer['Offer_ID']; ?></td>
                                 
                                 <?php $artistName = get_artistName($Offer['Artist_ID']); ?>
-                                <td><?php echo $artistName['artistName']; ?></td>
+                                <td><?php echo $artistName; ?></td>
                                 
                                 <?php $venueName = get_venueName($Offer['Venue_ID']); ?>
                                 <td><?php echo $venueName['venueName']; ?></td>
@@ -44,7 +44,7 @@
                                 <td><?php echo $acceptedOffer['Offer_ID']; ?></td>
                                 
                                 <?php $artistName = get_artistName($acceptedOffer['Artist_ID']); ?>
-                                <td><?php echo $artistName['artistName']; ?></td>
+                                <td><?php echo $artistName; ?></td>
                                 
                                 <?php $venueName = get_venueName($acceptedOffer['Venue_ID']); ?>
                                 <td><?php echo $venueName['venueName']; ?></td>
@@ -76,7 +76,7 @@
                                 <td><?php echo $rejectedOffer['Offer_ID']; ?></td>
                                 
                                 <?php $artistName = get_artistName($rejectedOffer['Artist_ID']); ?>
-                                <td><?php echo $artistName['artistName']; ?></td>
+                                <td><?php echo $artistName; ?></td>
                                 
                                 <?php $venueName = get_venueName($rejectedOffer['Venue_ID']); ?>
                                 <td><?php echo $venueName['venueName']; ?></td>

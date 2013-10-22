@@ -52,8 +52,9 @@
                 return $Locations;
         }
         
-        function accept_Offer($Offer_ID) {
+        function accept_Offer($Offer_ID, $date) {
                 global $db;
+                $accepted_Offer = $db->exec("UPDATE Offer SET offerAcceptanceDate = '$date' WHERE Offer_ID = $Offer_ID;");
                 $accepted_Offer = $db->exec("UPDATE Offer SET offerStatus = 'Accepted' WHERE Offer_ID = $Offer_ID;");
                 return $accepted_Offer;
         }

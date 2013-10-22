@@ -15,6 +15,7 @@
 				<th>For Artist</th>
                                 <th>Promoter</th>
 				<th>Venue</th>
+                                <th>Artist Guarantee</th>
 				<th>Offer Status</th>
 			</tr>
                         <?php foreach ($Offers as $Offer){?>
@@ -23,13 +24,14 @@
                                 <td><?php echo $Offer['Offer_ID']; ?></td>
                                 
                                 <?php $artistName = get_artistName($Offer['Artist_ID']); ?>
-                                <td><?php echo $artistName['artistName']; ?></td>
+                                <td><?php echo $artistName; ?></td>
                                  
                                 <?php $promoterName = get_promoterName($Offer['Promoter_ID']); ?>
-                                <td><?php echo $promoterName['promoterName']; ?></td>
+                                <td><?php echo $promoterName; ?></td>
                                 
                                 <?php $venueName = get_venueName($Offer['Venue_ID']); ?>
                                 <td><?php echo $venueName['venueName']; ?></td>
+                                <td><?php echo $Offer['offerGuarantee']; ?></td>
                                 <td><?php echo $Offer['offerStatus']; ?></td>
                                 <td><form action = "." method = "post">
                                         <input type = "hidden" name = "action" value = "accept_offer" />
@@ -69,7 +71,7 @@
                                 <td><?php echo $acceptedOffer['Offer_ID']; ?></td>
                                 
                                 <?php $artistName = get_artistName($acceptedOffer['Artist_ID']); ?>
-                                <td><?php echo $artistName['artistName']; ?></td>
+                                <td><?php echo $artistName; ?></td>
                                 
                                 <?php $venueName = get_venueName($acceptedOffer['Venue_ID']); ?>
                                 <td><?php echo $venueName['venueName']; ?></td>
@@ -101,7 +103,7 @@
                                 <td><?php echo $rejectedOffer['Offer_ID']; ?></td>
                                 
                                 <?php $artistName = get_artistName($rejectedOffer['Artist_ID']); ?>
-                                <td><?php echo $artistName['artistName']; ?></td>
+                                <td><?php echo $artistName; ?></td>
                                 
                                 <?php $venueName = get_venueName($rejectedOffer['Venue_ID']); ?>
                                 <td><?php echo $venueName['venueName']; ?></td>

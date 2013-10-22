@@ -32,6 +32,33 @@ if ($action == 'show_offers'){
     
     include 'show_offers.php';
     
+} elseif($action === 'accept_offer'){
+    
+    if (!isset($_POST['Offer_ID'])){
+    } else {
+        $Offer_ID = $_POST['Offer_ID'];
+    }
+    $date = date("Y-m-d");
+    $Accepted = accept_Offer($Offer_ID, $date);
+    
+    //$Locations = get_Locations();
+    $Agent_ID = $_SESSION['Agent_ID'];
+    $Offers = get_Agent_Offers($Agent_ID);
+    
+    $acceptedOffers = get_agentacceptedOffers($Agent_ID);
+    $rejectedOffers = get_agentrejectedOffers($Agent_ID);
+    
+    include 'show_offers.php';
+
+} elseif($action === 'reject_offer'){
+    $Offer_ID = $_POST['Offer_ID'];
+    reject_Offer($Offer_ID);
+    
+    $Promoter_ID = $_SESSION['Promoter_ID'];
+    $Offers = get_Offers($Promoter_ID);
+    //$Locations = get_Locations();
+    include 'offer_list.php';
+
 } elseif ($action == 'view_counter_offers'){
     // Get Offer data
     
@@ -112,6 +139,14 @@ if ($action == 'show_offers'){
     
     $submitCounterOffer = submit_counter_Offer($Offer_ID, $counterOfferStatus, $Artist_ID, $Agent_ID, $Venue_ID, $counterOfferDate, $counterOfferGuarantee, $counterOfferBonus, $counterOfferHotel, $counterOfferTechnical, $counterOfferMediaSupport, $counterOfferSellableCap, $counterOfferAgeLimit, $counterOfferEventType, $counterOfferGATicket1, $counterOfferGATIcket2, $counterOfferLoadIn, $counterOfferDoors, $counterOfferSetTime, $counterOfferCurfew);
     include 'show_offers.php';
+    
+} elseif ( $action === 'generate_contract'){
+    
+    $Promoter_ID = $_SESSION['Promoter_ID'];
+    
+    $Offer_ID = $_POST['Offer_ID'];
+    $Offer = get_Offer($Offer_ID);
+    include 'generate_contract.php';
     
 } else {
 

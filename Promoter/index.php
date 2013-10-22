@@ -95,30 +95,6 @@ if ($action === 'list_offers') {
     
     include 'offer_list.php';
         
-}elseif($action === 'accept_offer'){
-    
-    if (!isset($_POST['Offer_ID'])){
-    } else {
-        $Offer_ID = $_POST['Offer_ID'];
-    }
-    
-    $Accepted = accept_Offer($Offer_ID);
-    
-    //$Locations = get_Locations();
-    $Promoter_ID = $_SESSION['Promoter_ID'];
-    $Offers = get_Offers($Promoter_ID);
-    
-    include 'offer_list.php';
-
-} elseif($action === 'reject_offer'){
-    $Offer_ID = $_POST['Offer_ID'];
-    reject_Offer($Offer_ID);
-    
-    $Promoter_ID = $_SESSION['Promoter_ID'];
-    $Offers = get_Offers($Promoter_ID);
-    //$Locations = get_Locations();
-    include 'offer_list.php';
-
 } elseif($action === 'counter_offer'){
     
     $Promoter_ID = $_SESSION['Promoter_ID'];
@@ -159,6 +135,10 @@ if ($action === 'list_offers') {
     
     $Offer_ID = $_POST['Offer_ID'];
     $Offer = get_Offer($Offer_ID);
+    $Promoter = get_Promoter_info($Offer);
+    
+    
+    
     include 'generate_contract.php';
     
 } else {

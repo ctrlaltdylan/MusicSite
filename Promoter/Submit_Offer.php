@@ -105,9 +105,6 @@
 				echo 'Nope, write not successful';
 			}
 
-		ChromePhp::log($Artist_Name);
-		ChromePhp::log($Artist_query);
-		ChromePhp::loc($Artist_ID);
 
 
 

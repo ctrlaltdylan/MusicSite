@@ -14,7 +14,8 @@
                 $query->execute();
                 
                 
-                $artistName = $query->fetch();
+                $artistRow = $query->fetch();
+                $artistName = $artistRow['artistName'];
                 //for testing
                 //echo var_dump($artistName);
                 return $artistName;
